@@ -22,9 +22,10 @@ Channel Islands National Park
 
 ### Variables unique to fire
 destination_dir = r"C:\Temp\GISS_341"
-incident_name = "Ninko Creek"
+incident_name = "Ninko Creek test5"
 incident_id = "MTFNF0050"
 year = "2009"
+pro_version = "2_9"
 
 from os.path import dirname, join, realpath, exists
 from os import rename, walk
@@ -80,7 +81,7 @@ def main():
 		new_gdb_name = gdb.replace("{incidentName}", strip_non_alphanum(incident_name)).\
 		replace("{incidentID}", strip_non_alphanum(incident_id)).\
 		replace("2022", year).\
-		replace("2_8", "2_9")
+		replace("2_8", pro_version)
 		
 		rename(gdb, new_gdb_name)
 
@@ -95,7 +96,7 @@ def main():
 
 	print("Fixing broken dynamic text update table")
 	old_path = join(destination_dir, new_folder_name, "incident_data", "2022_{incidentName}_{incidentID}_other_incident_data_ArcPro_2_8.gdb")
-	new_path = join(destination_dir, new_folder_name, "incident_data", f"{year}_{strip_non_alphanum(incident_name)}_{strip_non_alphanum(incident_id)}_other_incident_data_ArcPro_2_8.gdb")
+	new_path = join(destination_dir, new_folder_name, "incident_data", f"{year}_{strip_non_alphanum(incident_name)}_{strip_non_alphanum(incident_id)}_other_incident_data_ArcPro_{pro_version}.gdb")
 
 	aprx.updateConnectionProperties(old_path, new_path)
 
@@ -104,12 +105,13 @@ def main():
 	arcpy.management.CalculateField(dynamic_table, "IncidentName", f'"{incident_name}"', "PYTHON3", '', "TEXT", "NO_ENFORCE_DOMAINS")
 	arcpy.management.CalculateField(dynamic_table, "UniqueFireID", f'"{incident_id}"', "PYTHON3", '', "TEXT", "NO_ENFORCE_DOMAINS")
 
-	aprx.saveACopy(join(destination_dir, new_folder_name, "projects", f"{year}_{strip_non_alphanum(incident_name)}"))
+	new_template_path = join(destination_dir, new_folder_name, "projects", f"{year}_{strip_non_alphanum(incident_name)}")
+	aprx.saveACopy(new_template_path)
 
 	end_message = f"""
 	You'll still need to manually do a few things.
 	Don't forget to...
-	1) Open up the template aprx: {aprx_path}
+	1) Open up the template aprx: {new_template_path}.aprx
 	2) Verify map name is good: {new_template_map_name}
 	3) Verify dynamic text labels are good
 	4) Add new gdb paths to project, save
