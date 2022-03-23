@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Zip file that may have been downloaded during testing.
+*.zip
+
 # Distribution / packaging
 .Python
 build/
