@@ -21,7 +21,7 @@ Channel Islands National Park
 '''
 
 ### Variables unique to fire
-destination_dir = r"C:\Temp\GISS_341zzz"
+destination_dir = r"C:\Temp\GISS_341"
 incident_name = "Ninko Creek"
 incident_id = "MTFNF0050"
 year = "2009"
@@ -79,7 +79,8 @@ def main():
 		# print(gdb)
 		new_gdb_name = gdb.replace("{incidentName}", strip_non_alphanum(incident_name)).\
 		replace("{incidentID}", strip_non_alphanum(incident_id)).\
-		replace("2022", year)
+		replace("2022", year).\
+		replace("2_8", "2_9")
 		
 		rename(gdb, new_gdb_name)
 
