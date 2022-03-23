@@ -22,7 +22,7 @@ Channel Islands National Park
 
 ### Variables unique to fire
 destination_dir = r"C:\Temp\GISS_341"
-incident_name = "Ninko Creek test5"
+incident_name = "Ninko Creek"
 incident_id = "MTFNF0050"
 year = "2009"
 pro_version = "2_9"

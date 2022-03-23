@@ -7,6 +7,13 @@ https://www.nwcg.gov/publications/pms936-1/data-preparation/directory-structure
 2022 is hard coded into this script, so it will need to be changed for next year when a 
 new folder structure template is generated.
 
+- Downloads official zipped folder structure from NIFC
+- Unzips to desired folder
+- Renames the project geodatabases for the specific fire
+- Renames the template map name inside the aprx
+- Fixes broken dynamic text update table 
+- Populates dynamic text table with fire data
+
 Instructions
 
 1) Edit variables as desired and run
