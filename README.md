@@ -1,5 +1,5 @@
 # fire-incident-prepper
-Instantly prepare a NWCG standard file folder structure for a fire incident
+Instantly prepare a NWCG standard file folder structure for a fire incident.
 
 Prepares a 2022 folder structure and aprx template for a new fire incident as described here:
 https://www.nwcg.gov/publications/pms936-1/data-preparation/directory-structure
