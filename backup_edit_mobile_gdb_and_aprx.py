@@ -14,7 +14,12 @@ import shutil
 from os.path import join, basename, isdir
 from os import mkdir
 from glob import glob
-from icecream import ic
+
+# Optional debugger if installed
+try:
+	from icecream import ic 
+except:
+	print("Skipping icecream import")
 
 arcpy.env.overwriteOutput = True
 
