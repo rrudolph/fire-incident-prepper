@@ -111,7 +111,7 @@ def main():
 	arcpy.management.CalculateField(dynamic_table, "IncidentName", f'"{incident_name}"', "PYTHON3", '', "TEXT", "NO_ENFORCE_DOMAINS")
 	arcpy.management.CalculateField(dynamic_table, "UniqueFireID", f'"{incident_id}"', "PYTHON3", '', "TEXT", "NO_ENFORCE_DOMAINS")
 
-	new_template_path = join(destination_dir, new_folder_name, "projects", f"{year}_{strip_non_alphanum(incident_name)}")
+	new_template_path = join(destination_dir, new_folder_name, "projects", f"{year}_{strip_non_alphanum(incident_name)}_Template")
 	aprx.saveACopy(new_template_path)
 
 	end_message = f"""
