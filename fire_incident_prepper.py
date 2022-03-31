@@ -21,10 +21,10 @@ Channel Islands National Park
 '''
 
 ### Variables unique to fire
-destination_dir = r"C:\Temp\GISS_341"
-incident_name = "Ninko Creek"
-incident_id = "MTFNF0050"
-year = "2009"
+destination_dir = r"C:\GISSS341"
+incident_name = "Alamo"
+incident_id = "AZCNF0020"
+year = "2008"
 pro_version = "2_9"
 
 from os.path import dirname, join, realpath, exists
@@ -95,8 +95,14 @@ def main():
 			m.name = new_template_map_name
 
 	print("Fixing broken dynamic text update table")
-	old_path = join(destination_dir, new_folder_name, "incident_data", "2022_{incidentName}_{incidentID}_other_incident_data_ArcPro_2_8.gdb")
-	new_path = join(destination_dir, new_folder_name, "incident_data", f"{year}_{strip_non_alphanum(incident_name)}_{strip_non_alphanum(incident_id)}_other_incident_data_ArcPro_{pro_version}.gdb")
+	old_path = join(destination_dir,
+		new_folder_name,
+		"incident_data",
+		"2022_{incidentName}_{incidentID}_other_incident_data_ArcPro_2_8.gdb")
+	new_path = join(destination_dir,
+		new_folder_name,
+		"incident_data",
+		f"{year}_{strip_non_alphanum(incident_name)}_{strip_non_alphanum(incident_id)}_other_incident_data_ArcPro_{pro_version}.gdb")
 
 	aprx.updateConnectionProperties(old_path, new_path)
 
@@ -114,9 +120,9 @@ def main():
 	1) Open up the template aprx: {new_template_path}.aprx
 	2) Verify map name is good: {new_template_map_name}
 	3) Verify dynamic text labels are good
-	4) Add new gdb paths to project, save
+	4) Add new gdb paths to project favorites, save
 	5) Save as an edit_ aprx 
-	6) Open edit_ aprx and download an offline copy of the fire
+	6) Open edit_ aprx, set to local projection, and download an offline copy of the fire
 	7) Remap event layers to the .geodatabase file
 	8) Update the feature templates for all features in the Manage Templates window
 	9) Save edit_ aprx
