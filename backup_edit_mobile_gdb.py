@@ -1,5 +1,5 @@
 '''
-This is a not very polished script that backs up an incident database and aprx files.  You will need to
+This is a script that backs up an incident database and aprx files.  You will need to
 customize the incident name and ID, as well as the location to your mobile geodatabase file.  Use with caution, 
 it is set to overwrite data.
 
